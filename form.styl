@@ -1,0 +1,117 @@
+@import 'mixin'
+@import 'colors'
+
+default-width   = 210px
+small-width     = 98px
+label-width     = 140px
+error-color     = primary-red
+
+// --------------------------------------------------------------------------
+// Form Elements
+// --------------------------------------------------------------------------
+
+input, select, textarea
+  border-radius       3px
+  display             inline-block
+  color               #555
+  border              1px solid #ccc
+  background-color    #fff
+  padding             4px
+
+input
+  &:disabled
+    background        gray-lighter
+    color             gray
+
+  &[type="text"],
+  &[type="password"]
+    transition        border-color linear 0.2s
+    width             default-width
+    height            18px
+    inset-box-shadow  0 1px 1px rgba(0, 0, 0, 0.1)
+    margin-bottom     0
+
+    &:focus
+      border-color    primary-blue
+      box-shadow      0 0 5px primary-blue
+      outline         0
+
+    &.small, &.date
+      width           small-width
+
+select
+  width               default-width + 10px
+  height              28px
+  &.small, &.time
+    width             small-width + 10px
+
+textarea
+  width               default-width
+  height              100px
+
+// --------------------------------------------------------------------------
+// Input Layout
+// --------------------------------------------------------------------------
+
+p
+  padding             12px 0 1px 0
+  margin              0 0 6px 0
+  border-radius       12px
+
+  label
+    float             left
+    width             label-width
+    padding           5px 10px 0 0
+    text-align        right
+    margin-bottom     5px
+    display           block
+
+// --------------------------------------------------------------------------
+// Errors
+// --------------------------------------------------------------------------
+
+ul.errors
+  padding             0
+  margin              (tick / 2) 0 tick (label-width + 10px)
+  list-style-type     none
+
+  li
+    color             darken(error-color, 50%)
+    text-shadow       1px 1px 0 #fff
+
+p.error
+  background-color    lighten(error-color, 95%)
+  input
+    border            1px solid error-color
+
+// --------------------------------------------------------------------------
+// Header / Action footer
+// --------------------------------------------------------------------------
+
+.header
+  height          44px
+  padding-bottom  10px
+  border-bottom   light-stroke
+
+  h1
+    color         gray
+    padding-top   14px
+
+  h2
+    font-size     24pt
+
+  img
+    float         right
+
+.actions
+  padding         15px 20px 5px 147px
+
+  .cancel
+    padding:      0 10px
+    margin:       5px 0 0 0
+    text-shadow   2px 1px 0 #fff
+
+  p.error
+    background-color    lighten(error-color, 95%)
+    input
+      border            1px solid error-color

@@ -1,0 +1,94 @@
+.navigation
+  height              = 37px
+
+  ul
+    list-style-type     none
+    margin              0
+    padding             0
+    text-align          center
+
+  // --------------------------------------------------------------------------
+  // Primary Navigation -- big ol' top bar
+  // --------------------------------------------------------------------------
+
+  .primary
+    fg-color          = gray-lighter
+    bg-color          = gray-darker
+    active-color      = gray
+    bg-highlight      = gray-dark
+    height            = height
+
+    vbg-gradient        bg-highlight, bg-color
+    color               fg-color
+    height              height
+
+    li
+      padding           0 (tick * 2)
+      float             left
+      border-right      1px solid bg-highlight
+      height            height
+      text-shadow       0 -1px 0 rgba(0, 0, 0, .25)
+
+      &.title
+        top-pad       = 8px
+        height          (height - top-pad)
+
+        padding-top     top-pad
+        color           white
+        font-size       17pt
+        font-weight     bold
+
+      a
+        font-size       11pt
+        line-height     height + 1
+        color           gray-light
+        text-decoration none
+
+        &:hover
+          color         white
+
+      &.account
+        float           right
+        a
+          font-weight   normal
+
+    li.active
+      background        active-color
+
+      a
+        text-shadow     none
+        color           white
+
+  // --------------------------------------------------------------------------
+  // Secondary Navigation -- when primary things have been sel'd
+  // --------------------------------------------------------------------------
+
+  .secondary
+    height            = height
+
+    border-bottom       1px solid white
+    background          #dfdedd
+    inset-box-shadow    0 3px 10px rgba(0, 0, 0, 0.3)
+    height              height
+    display             none
+
+    &.active
+      display           block
+
+    li
+      top-pad         = 9px
+      float             left
+      height            height - top-pad
+      margin            top-pad 0 0 0
+
+      a
+        padding         top-pad 40px
+        text-decoration none
+        color           gray
+        font-weight     bold
+        text-shadow     0px 1px 1px #fff
+
+
+        &.active
+          // color         primary-blue-dark
+          color         primary-red
